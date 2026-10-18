@@ -5,6 +5,10 @@
 import app from '../src/app';
 
 export default function handler(req: any, res: any) {
+  const original = req.headers['x-matched-path'];
+  if (original && req.url === '/api') {
+    req.url = original;
+  }
   return app(req, res);
 }
 

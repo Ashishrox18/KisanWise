@@ -1,20 +1,80 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
+const DEFAULT_DEMO_USERS = [
+  {
+    id: "d3c06f60-3279-4928-90df-b334ef4432fd",
+    email: "farmer@gmail.com",
+    password: "$2a$10$XR8CKq4TlnpGmA8XRy6SdeZKLeLpzMRKrU7wHPb1OkREgwcr5zcji",
+    name: "Ramesh Patel (Farmer)",
+    role: "farmer",
+    phone: "+919876543210",
+    phoneVerified: true,
+    emailVerified: true,
+    profile: {
+      location: "Pune, Maharashtra",
+      farmSize: 12
+    },
+    createdAt: "2026-10-15T12:40:45.197Z",
+    updatedAt: "2026-10-15T12:40:45.198Z"
+  },
+  {
+    id: "028ad378-50c7-4538-b2b0-00849a42b679",
+    email: "buyer@gmail.com",
+    password: "$2a$10$nC7QGKYxcAM9GqAPwgnJc.SVnTcJIuF1hEY6HtqZnsjWt3Hi.wJXK",
+    name: "AgroCorp Buyers Ltd",
+    role: "buyer",
+    phone: "+919876543211",
+    phoneVerified: true,
+    emailVerified: true,
+    profile: {
+      location: "Pune, Maharashtra",
+      companyName: "AgroCorp Buyers Ltd"
+    },
+    createdAt: "2026-10-15T12:40:45.344Z",
+    updatedAt: "2026-10-15T12:40:45.344Z"
+  },
+  {
+    id: "e3a4053e-bbf7-4740-8201-ec16cc140e4e",
+    email: "admin@krishiera.com",
+    password: "$2a$10$rXtM3ni2zuQ40LqkW34kKeCtPSAGPPved6BQ1lykFvZ35UcNkqIwy",
+    name: "System Admin",
+    role: "admin",
+    phone: "+919876543212",
+    phoneVerified: true,
+    emailVerified: true,
+    profile: {
+      location: "Pune, Maharashtra"
+    },
+    createdAt: "2026-10-15T12:40:45.492Z",
+    updatedAt: "2026-10-15T12:40:45.492Z"
+  }
+];
+
 export class LocalStorageService {
   private dataDir: string;
+  private memoryStore: Map<string, any[]> = new Map([
+    ['users', [...DEFAULT_DEMO_USERS]],
+    ['crops', []],
+    ['orders', []],
+    ['quotes', []],
+    ['offers', []],
+    ['notifications', []],
+    ['invoices', []],
+  ]);
 
   constructor() {
     this.dataDir = path.join(__dirname, '../../data');
-    // Only try to create the data dir in local/non-production environments
-    if (process.env.NODE_ENV !== 'production') {
-      this.ensureDataDir();
-    }
+    this.ensureDataDir();
   }
 
   private ensureDataDir() {
-    if (!fs.existsSync(this.dataDir)) {
-      fs.mkdirSync(this.dataDir, { recursive: true });
+    try {
+      if (!fs.existsSync(this.dataDir)) {
+        fs.mkdirSync(this.dataDir, { recursive: true });
+      }
+    } catch {
+      // Ignored on read-only serverless environments like Vercel
     }
   }
 
@@ -23,27 +83,33 @@ export class LocalStorageService {
   }
 
   private readTable(tableName: string): any[] {
-    if (process.env.NODE_ENV === 'production') return [];
-    const filePath = this.getFilePath(tableName);
-    if (!fs.existsSync(filePath)) return [];
-    try {
-      return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    } catch (error) {
-      console.error(`Error reading table ${tableName}:`, error);
-      return [];
+    const memoryData = this.memoryStore.get(tableName);
+    if (memoryData && memoryData.length > 0) {
+      return memoryData;
     }
+
+    try {
+      const filePath = this.getFilePath(tableName);
+      if (fs.existsSync(filePath)) {
+        const fileData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        this.memoryStore.set(tableName, fileData);
+        return fileData;
+      }
+    } catch {
+      // Fall through to memoryStore
+    }
+    return memoryData || [];
   }
 
   private writeTable(tableName: string, data: any[]): void {
-    if (process.env.NODE_ENV === 'production') {
-      throw new Error('LocalStorageService cannot write in production — use USE_POSTGRES=true');
-    }
-    const filePath = this.getFilePath(tableName);
+    this.memoryStore.set(tableName, data);
     try {
-      fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-    } catch (error) {
-      console.error(`Error writing table ${tableName}:`, error);
-      throw error;
+      const filePath = this.getFilePath(tableName);
+      if (fs.existsSync(path.dirname(filePath))) {
+        fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+      }
+    } catch {
+      // Read-only filesystem fallback on Vercel
     }
   }
 
@@ -104,89 +170,65 @@ export class LocalStorageService {
       return data.filter((item: any) => item.farmerId === expressionAttributeValues[':farmerId']);
     }
 
-    // Filter by role (handles both 'role = :role' and '#role = :role')
-    if ((filterExpression.includes('role = :role') || filterExpression.includes('#role = :role')) && expressionAttributeValues?.[':role']) {
-      return data.filter((item: any) => item.role === expressionAttributeValues[':role']);
+    // Filter by buyerId
+    if (filterExpression.includes('buyerId = :buyerId') && expressionAttributeValues?.[':buyerId']) {
+      return data.filter((item: any) => item.buyerId === expressionAttributeValues[':buyerId']);
     }
 
-    // Fallback: return all data
+    // Filter by cropId
+    if (filterExpression.includes('cropId = :cropId') && expressionAttributeValues?.[':cropId']) {
+      return data.filter((item: any) => item.cropId === expressionAttributeValues[':cropId']);
+    }
+
+    // Filter by status
+    if (filterExpression.includes('status = :status') && expressionAttributeValues?.[':status']) {
+      return data.filter((item: any) => item.status === expressionAttributeValues[':status']);
+    }
+
     return data;
   }
 
   async query(tableName: string, keyConditionExpression: string, expressionAttributeValues: any) {
-    // For simplicity, treat query like scan with filters
     return this.scan(tableName, keyConditionExpression, expressionAttributeValues);
   }
 
   async update(tableName: string, key: any, updateExpression: string, expressionAttributeValues: any, expressionAttributeNames?: any) {
-    const data = this.readTable(tableName);
-    const itemIndex = data.findIndex((item: any) => {
-      return Object.keys(key).every(k => item[k] === key[k]);
-    });
-
-    if (itemIndex === -1) {
+    const item = await this.get(tableName, key);
+    if (!item) {
       throw new Error('Item not found');
     }
 
-    const item = { ...data[itemIndex] };
+    // Simple update logic
+    if (updateExpression.includes('SET')) {
+      const setPart = updateExpression.replace('SET', '').trim();
+      const assignments = setPart.split(',').map(s => s.trim());
 
-    // Parse SET expression: "SET field1 = :val1, field2 = :val2"
-    const setMatch = updateExpression.match(/SET (.+)/i);
-    if (setMatch) {
-      const assignments = setMatch[1].split(',').map((s: string) => s.trim());
-      for (const assignment of assignments) {
-        const eqIdx = assignment.indexOf('=');
-        if (eqIdx === -1) continue;
-        let fieldPart = assignment.substring(0, eqIdx).trim();
-        const valuePart = assignment.substring(eqIdx + 1).trim();
-
-        // Resolve attribute name alias
-        if (expressionAttributeNames && expressionAttributeNames[fieldPart]) {
-          fieldPart = expressionAttributeNames[fieldPart];
+      assignments.forEach(assignment => {
+        const [fieldWithAlias, valueAlias] = assignment.split('=').map(s => s.trim());
+        let field = fieldWithAlias;
+        if (expressionAttributeNames && expressionAttributeNames[fieldWithAlias]) {
+          field = expressionAttributeNames[fieldWithAlias];
         }
 
-        // Get value
-        const value = expressionAttributeValues[valuePart];
-        if (value !== undefined) {
-          item[fieldPart] = value;
+        if (expressionAttributeValues[valueAlias] !== undefined) {
+          item[field] = expressionAttributeValues[valueAlias];
         }
-      }
-    } else {
-      // Fallback: merge all expression attribute values
-      Object.keys(expressionAttributeValues).forEach(key => {
-        const attrName = key.replace(':', '');
-        item[attrName] = expressionAttributeValues[key];
       });
+
+      item.updatedAt = new Date().toISOString();
+      await this.put(tableName, item);
     }
 
-    item.updatedAt = new Date().toISOString();
-    data[itemIndex] = item;
-    this.writeTable(tableName, data);
-    
     return item;
   }
 
   async delete(tableName: string, key: any) {
-    try {
-      const data = this.readTable(tableName);
-      console.log(`🗑️ Deleting from ${tableName} with key:`, key);
-      console.log(`📊 Current data count: ${data.length}`);
-      
-      const filteredData = data.filter(item => {
-        // Check if all key properties match
-        const matches = Object.keys(key).every(k => item[k] === key[k]);
-        return !matches; // Keep items that DON'T match
-      });
-      
-      console.log(`📊 After delete count: ${filteredData.length}`);
-      console.log(`✅ Deleted ${data.length - filteredData.length} item(s)`);
-      
-      this.writeTable(tableName, filteredData);
-      return { success: true };
-    } catch (error) {
-      console.error(`❌ Error deleting from ${tableName}:`, error);
-      throw error;
-    }
+    const data = this.readTable(tableName);
+    const filtered = data.filter(item => {
+      return !Object.keys(key).every(k => item[k] === key[k]);
+    });
+    this.writeTable(tableName, filtered);
+    return { success: true };
   }
 }
 

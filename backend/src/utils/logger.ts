@@ -9,12 +9,16 @@ const transports: winston.transport[] = [
   }),
 ];
 
-// Only write to files in local dev — Vercel filesystem is read-only
-if (process.env.NODE_ENV !== 'production') {
-  transports.push(
-    new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'logs/combined.log' })
-  );
+// Only write to files in local dev (never in production or on Vercel / serverless)
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL && !process.env.AWS_LAMBDA_FUNCTION_NAME) {
+  try {
+    transports.push(
+      new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
+      new winston.transports.File({ filename: 'logs/combined.log' })
+    );
+  } catch {
+    // Ignore file logger on read-only environments
+  }
 }
 
 export const logger = winston.createLogger({
