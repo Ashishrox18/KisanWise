@@ -35,12 +35,6 @@ jest.mock('../services/firestore.service', () => ({
   },
 }));
 
-// ── Mock firebase-admin/auth (googleLogin) ─────────────────────────────────
-jest.mock('firebase-admin/auth', () => ({
-  getAuth: jest.fn(() => ({
-    verifyIdToken: jest.fn().mockRejectedValue(new Error('No Firebase in test')),
-  })),
-}));
 
 process.env.JWT_SECRET = 'test-api-secret-123';
 process.env.NODE_ENV   = 'test';

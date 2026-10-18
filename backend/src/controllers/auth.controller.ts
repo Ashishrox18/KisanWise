@@ -3,7 +3,6 @@ import bcrypt from 'bcryptjs';
 import jwt, { SignOptions } from 'jsonwebtoken';
 import { dynamoDBService } from '../services/firestore.service';
 import { v4 as uuidv4 } from 'uuid';
-import { getAuth } from 'firebase-admin/auth';
 import axios from 'axios';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-key-change-in-production';
@@ -317,21 +316,19 @@ export class AuthController {
 
       let decodedToken: any;
       try {
-        decodedToken = await getAuth().verifyIdToken(idToken);
-      } catch (err: any) {
-        console.warn('⚠️ getAuth().verifyIdToken failed, falling back to Google tokeninfo:', err.message);
-        try {
-          const tokenRes = await axios.get(`https://oauth2.googleapis.com/tokeninfo?id_token=${idToken}`);
-          decodedToken = {
-            email: tokenRes.data.email,
-            name: tokenRes.data.name,
-            picture: tokenRes.data.picture,
-            uid: tokenRes.data.sub || tokenRes.data.user_id,
-          };
-        } catch (fallbackErr: any) {
-          console.error('❌ Token validation failed completely:', fallbackErr.message);
-          return res.status(401).json({ error: 'Invalid Google ID token', details: err.message });
-        }
+        const tokenRes = await axios.get(`https://oauth2.googleapis.com/tokeninfo?id_token=${idToken}`);
+        decodedToken = {
+          email: tokenRes.data.email,
+          name: tokenRes.data.name,
+          picture: tokenRes.data.picture,
+          uid: tokenRes.data.sub || tokenRes.data.user_id,
+        };
+      } catch (tokenErr: any) {
+        console.error('❌ Google token verification failed:', tokenErr.response?.data || tokenErr.message);
+        return res.status(401).json({
+          error: 'Invalid Google ID token',
+          details: tokenErr.response?.data?.error_description || tokenErr.message
+        });
       }
 
       const { email, name, picture, uid } = decodedToken;
