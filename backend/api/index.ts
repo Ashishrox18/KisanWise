@@ -1,9 +1,12 @@
 /**
  * Vercel serverless entry point.
- * Just exports the Express app — Vercel manages the HTTP server.
- * On Vercel, env vars are injected at runtime (no .env file needed).
- * For local dev, server.ts handles dotenv loading instead.
+ * Exports the Express app as both standard function handler and Express instance.
  */
 import app from '../src/app';
 
-export default app;
+export default function handler(req: any, res: any) {
+  return app(req, res);
+}
+
+module.exports = app;
+module.exports.default = app;

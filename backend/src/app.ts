@@ -85,7 +85,11 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(morgan('combined', { stream: { write: (msg) => logger.info(msg.trim()) } }));
 
-// Health check — Vercel/monitoring hits this to confirm the function is alive
+// Health & Status checks — Vercel/monitoring hits this to confirm the function is alive
+app.get(['/', '/api'], (_req, res) => {
+  res.json({ status: 'ok', name: 'KisanWise Backend API', version: '1.0.0' });
+});
+
 app.get(['/health', '/api/health'], (_req, res) => {
   res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
