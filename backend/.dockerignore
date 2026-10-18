@@ -15,3 +15,11 @@ coverage/
 .idea/
 *.log
 .cache/
+# ML Python environment — not needed at runtime (model JSON is included)
+ml/.venv/
+ml/__pycache__/
+ml/data/
+ml/inference/__pycache__/
+# Test files
+src/__tests__/
+jest.config.js

@@ -1,53 +1,39 @@
-# Build stage
+# ── Build stage ──────────────────────────────────────────────────────────────
 FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
 COPY package*.json ./
 COPY tsconfig.json ./
-
-# Install dependencies
 RUN npm ci
-
-# Copy source code
 COPY src ./src
-
-# Build TypeScript
 RUN npm run build
 
-# Production stage
+# ── Production stage ─────────────────────────────────────────────────────────
 FROM node:20-alpine
 
 WORKDIR /app
 
-# Install curl for health checks
 RUN apk add --no-cache curl
 
-# Copy package files
 COPY package*.json ./
+RUN npm ci --omit=dev
 
-# Install production dependencies only
-RUN npm ci --production
-
-# Copy built files from builder
 COPY --from=builder /app/dist ./dist
 
-# Create non-root user
+# Non-root user
 RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nodejs -u 1001
-
-# Change ownership
-RUN chown -R nodejs:nodejs /app
+    adduser -S nodejs -u 1001 && \
+    chown -R nodejs:nodejs /app
 
 USER nodejs
 
-# Expose port
-EXPOSE 3000
+# Cloud Run injects PORT; fall back to 3000 for local/Vercel
+ENV PORT=3000
+EXPOSE $PORT
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:3000/health || exit 1
+# Health check (Cloud Run calls /health to confirm readiness)
+HEALTHCHECK --interval=30s --timeout=5s --start-period=40s --retries=3 \
+  CMD curl -f http://localhost:${PORT}/health || exit 1
 
-# Start application
 CMD ["node", "dist/server.js"]

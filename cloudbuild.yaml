@@ -1,0 +1,87 @@
+steps:
+  # ─── 1. Build and Deploy Backend (Cloud Run) ──────────────────────────────
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'build-backend'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/kisanwise-backend:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/kisanwise-backend:latest'
+      - '-f'
+      - 'backend/Dockerfile'
+      - 'backend'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'push-backend'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/kisanwise-backend:latest'
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: 'deploy-backend'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'kisanwise-backend'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/kisanwise-backend:latest'
+      - '--region'
+      - 'asia-south1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--port'
+      - '3000'
+      - '--memory'
+      - '512Mi'
+      - '--cpu'
+      - '1'
+
+  # ─── 2. Build and Deploy Frontend (Cloud Run Container option) ───────────
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'build-frontend'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/kisanwise-frontend:$COMMIT_SHA'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/kisanwise-frontend:latest'
+      - '-f'
+      - 'Dockerfile.frontend'
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    id: 'push-frontend'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/kisanwise-frontend:latest'
+
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    id: 'deploy-frontend'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'kisanwise-frontend'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/kisanwise-frontend:latest'
+      - '--region'
+      - 'asia-south1'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--port'
+      - '8080'
+      - '--memory'
+      - '256Mi'
+      - '--cpu'
+      - '1'
+
+images:
+  - 'gcr.io/$PROJECT_ID/kisanwise-backend:latest'
+  - 'gcr.io/$PROJECT_ID/kisanwise-frontend:latest'
+
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -1,0 +1,14 @@
+node_modules
+dist
+.git
+.github
+.vscode
+.DS_Store
+backend
+*.md
+qa-test-report.*
+clear-farmer-listings.js
+test-*.js
+comprehensive-qa-test.js
+final-qa-verification.js
+fix-all-issues.js
