@@ -7,12 +7,7 @@ import { Request, Response, NextFunction } from 'express';
 import { authenticate, optionalAuth, AuthRequest } from '../middleware/auth';
 import { AppError } from '../middleware/errorHandler';
 
-// The middleware reads JWT_SECRET at module load time using the env value
-// OR the hardcoded fallback. Since we can't reliably set env before module
-// load in Jest, we sign tokens with the same fallback the middleware uses.
-const SECRET = 'fallback-secret-key-change-in-production';
-// Set it anyway so it's consistent for any future runs with proper env isolation
-process.env.JWT_SECRET = SECRET;
+const SECRET = process.env.JWT_SECRET || 'fallback-secret-key-change-in-production';
 
 function mockRes() {
   const res: Partial<Response> = {

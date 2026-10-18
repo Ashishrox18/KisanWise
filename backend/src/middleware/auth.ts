@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { AppError } from './errorHandler';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-key-change-in-production';
+const getJwtSecret = () => process.env.JWT_SECRET || 'fallback-secret-key-change-in-production';
 
 export interface AuthRequest extends Request {
   user?: {
@@ -20,7 +20,7 @@ export const authenticate = (req: AuthRequest, res: Response, next: NextFunction
       throw new AppError('Authentication required', 401);
     }
 
-    const decoded = jwt.verify(token, JWT_SECRET) as any;
+    const decoded = jwt.verify(token, getJwtSecret()) as any;
     req.user = decoded;
     next();
   } catch (error) {
@@ -41,7 +41,7 @@ export const optionalAuth = (req: AuthRequest, res: Response, next: NextFunction
   try {
     const token = req.headers.authorization?.split(' ')[1];
     if (token) {
-      const decoded = jwt.verify(token, JWT_SECRET) as any;
+      const decoded = jwt.verify(token, getJwtSecret()) as any;
       req.user = decoded;
     }
   } catch {
