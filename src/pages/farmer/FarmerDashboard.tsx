@@ -327,7 +327,7 @@ const FarmerDashboard = () => {
           </button>
 
           <a
-            href="https://drive.google.com/file/d/1jf7otUtRIj6R79m1XapC7EI4VElVr2nF/view?usp=sharing"
+            href="https://drive.google.com/drive/folders/1OVLyLWQWmn-Q8rLDOUTN5P77ON7mEaAD?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-3.5 py-2 bg-white hover:bg-gray-50 text-gray-700 hover:text-gray-900 border border-gray-200 rounded-xl shadow-xs transition-all duration-150 text-sm font-medium"

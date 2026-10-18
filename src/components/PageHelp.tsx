@@ -30,7 +30,7 @@ const resolvePageKey = (pathname: string): string => {
   return 'dashboard';
 };
 
-const DEMO_VIDEO_URL = 'https://drive.google.com/file/d/1jf7otUtRIj6R79m1XapC7EI4VElVr2nF/view?usp=sharing';
+const DEMO_VIDEO_URL = 'https://drive.google.com/drive/folders/1OVLyLWQWmn-Q8rLDOUTN5P77ON7mEaAD?usp=sharing';
 
 export default function PageHelp({ pageKey: explicitKey }: PageHelpProps) {
   const { t } = useTranslation();
