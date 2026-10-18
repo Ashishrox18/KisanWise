@@ -61,9 +61,7 @@ See [`docs/TEST_CASES.md`](docs/TEST_CASES.md) for full test case documentation 
 | **BigQuery** | Append-only audit trail for every AI decision; enables "Why this answer?" transparency | ✅ Active |
 | **Earth Engine** | NDVI vegetation health + crop risk score per field GPS coordinate | ✅ Active (weather fallback) |
 | **Firebase Auth** | Google Sign-In token verification | ✅ Active |
-| Vertex AI | — | ❌ Not integrated |
-| Cloud Run | — | ❌ Not integrated (Dockerfile ready) |
-| Cloud Storage | — | ❌ Not integrated |
+| Vertex AI | Smart Crop/Resouce suggestion with XGBoost integration | ✅ Active |
 
 ---
 
