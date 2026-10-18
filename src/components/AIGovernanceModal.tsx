@@ -45,24 +45,9 @@ export default function AIGovernanceModal({ userId, onDismiss }: Props) {
         </div>
 
         {/* Body */}
-        <div className="px-6 py-5 space-y-4 text-sm text-gray-700 leading-relaxed">
+        <div className="px-6 py-5 text-sm text-gray-700 leading-relaxed">
           <p>
             KisanWise uses AI models — including a trained XGBoost price-trend predictor and Gemini generative AI — to assist farmers with planning, pricing, and operational decisions.
-          </p>
-
-          <div className="space-y-2 text-xs bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <p className="font-semibold text-slate-800">Before you continue, please note:</p>
-            <ul className="space-y-1.5 text-slate-700">
-              <li className="flex items-start gap-2"><span className="text-slate-400 mt-0.5">•</span>Predictions and recommendations are <strong>statistical estimates</strong>, not guarantees. Market prices, weather, and yields are inherently uncertain.</li>
-              <li className="flex items-start gap-2"><span className="text-slate-400 mt-0.5">•</span>The XGBoost price model has a <strong>validation MAE of ~1.2 percentage points</strong> and ~55% 3-class direction accuracy on held-out data. It may be wrong.</li>
-              <li className="flex items-start gap-2"><span className="text-slate-400 mt-0.5">•</span>Gemini AI outputs may contain <strong>inaccuracies or hallucinations</strong>. Always cross-check critical advice with your local agricultural officer or mandi before acting.</li>
-              <li className="flex items-start gap-2"><span className="text-slate-400 mt-0.5">•</span>This tool is an <strong>aid to decision-making</strong>, not a replacement for professional agronomic or financial advice.</li>
-              <li className="flex items-start gap-2"><span className="text-slate-400 mt-0.5">•</span>KisanWise is <strong>not liable</strong> for financial losses arising from reliance on AI outputs.</li>
-            </ul>
-          </div>
-
-          <p className="text-xs text-gray-500">
-            You can review this notice at any time from the AI Assistant footer or your account settings.
           </p>
         </div>
 

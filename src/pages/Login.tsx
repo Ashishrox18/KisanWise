@@ -107,7 +107,20 @@ export default function Login() {
       sessionStorage.setItem('user', JSON.stringify(res.user));
       navigate(ROLE_ROUTES[res.user.role] || '/');
     } catch (e: any) {
-      setError(e.response?.data?.error || 'Google sign-in failed. Please use email/password for now.');
+      console.error('Google sign-in error:', e);
+      let errMsg = e.response?.data?.error;
+      if (!errMsg) {
+        if (e.code === 'auth/operation-not-allowed') {
+          errMsg = 'Google sign-in is not enabled in Firebase Console. Please enable Google under Authentication > Sign-in method.';
+        } else if (e.code === 'auth/popup-closed-by-user') {
+          errMsg = 'Google sign-in window was closed.';
+        } else if (e.code === 'auth/unauthorized-domain') {
+          errMsg = 'Domain not authorized in Firebase Console (Authentication > Settings > Authorized domains).';
+        } else {
+          errMsg = e.message || 'Google sign-in failed. Please use email/password for now.';
+        }
+      }
+      setError(errMsg);
     } finally {
       setGoogleLoading(false);
     }
