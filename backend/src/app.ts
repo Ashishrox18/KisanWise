@@ -66,6 +66,8 @@ app.use(cors({
       'http://localhost:5173',
       'http://localhost:3000',
       /\.vercel\.app$/,
+      /\.web\.app$/,
+      /\.firebaseapp\.com$/,
       'https://krishiai.in',
       'https://www.krishiai.in',
     ];
@@ -83,8 +85,8 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(morgan('combined', { stream: { write: (msg) => logger.info(msg.trim()) } }));
 
-// Health check — Vercel hits this to confirm the function is alive
-app.get('/health', (_req, res) => {
+// Health check — Vercel/monitoring hits this to confirm the function is alive
+app.get(['/health', '/api/health'], (_req, res) => {
   res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
