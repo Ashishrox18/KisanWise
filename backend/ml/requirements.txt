@@ -1,0 +1,7 @@
+# Python deps for the ML price-trend predictor (backend/ml/).
+# Install in a venv:  pip install -r requirements.txt
+xgboost>=2.0.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+requests>=2.31.0
+numpy>=1.24.0

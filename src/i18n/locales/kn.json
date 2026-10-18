@@ -1,0 +1,530 @@
+{
+  "common": {
+    "welcome": "ಸ್ವಾಗತ",
+    "dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "logout": "ಲಾಗ್ ಔಟ್",
+    "save": "ಉಳಿಸಿ",
+    "cancel": "ರದ್ದುಮಾಡಿ",
+    "submit": "ಸಲ್ಲಿಸಿ",
+    "loading": "ಲೋಡ್ ಆಗುತ್ತಿದೆ...",
+    "loadingTips": "ವೈಯಕ್ತಿಕ ಸಲಹೆಗಳನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...",
+    "error": "ದೋಷ",
+    "success": "ಯಶಸ್ಸು",
+    "careTips": "ಆರೈಕೆ ಸಲಹೆಗಳು",
+    "updatedDaysAgo": "{{days}} ದಿನಗಳ ಹಿಂದೆ ನವೀಕರಿಸಲಾಗಿದೆ"
+  },
+  "nav": {
+    "home": "ಮುಖಪುಟ",
+    "cropPlanning": "ಬೆಳೆ ಯೋಜನೆ",
+    "harvest": "ಕೊಯ್ಲು ನಿರ್ವಹಣೆ",
+    "myListings": "ನನ್ನ ಪಟ್ಟಿಗಳು",
+    "warehouses": "ಗೋದಾಮುಗಳು",
+    "vehicles": "ವಾಹನಗಳು",
+    "transportVehicles": "ಸಾರಿಗೆ ವಾಹನಗಳು",
+    "procurement": "ಖರೀದಿ ವಿನಂತಿಗಳು",
+    "myBookings": "ನನ್ನ ಬುಕಿಂಗ್‌ಗಳು"
+  },
+  "dashboard": {
+    "title": "ರೈತ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
+    "welcomeBack": "ಮತ್ತೆ ಸ್ವಾಗತ",
+    "totalLand": "ಒಟ್ಟು ಭೂಮಿ",
+    "activeCrops": "ಸಕ್ರಿಯ ಬೆಳೆಗಳು",
+    "expectedYield": "ನಿರೀಕ್ಷಿತ ಇಳುವರಿ",
+    "totalRevenue": "ಒಟ್ಟು ಆದಾಯ",
+    "acres": "ಎಕರೆಗಳು",
+    "tons": "ಟನ್‌ಗಳು",
+    "currentCrops": "ಪ್ರಸ್ತುತ ಬೆಳೆಗಳು",
+    "viewAll": "ಎಲ್ಲವನ್ನೂ ವೀಕ್ಷಿಸಿ",
+    "noCropsPlanted": "ಇನ್ನೂ ಬೆಳೆಗಳನ್ನು ನೆಡಲಾಗಿಲ್ಲ",
+    "allCropsHarvested": "ಎಲ್ಲಾ ಬೆಳೆಗಳನ್ನು ಕೊಯ್ಲು ಮಾಡಲಾಗಿದೆ ಅಥವಾ ಪಟ್ಟಿ ಮಾಡಲಾಗಿದೆ",
+    "planFirstCrop": "ನಿಮ್ಮ ಮೊದಲ ಬೆಳೆಯನ್ನು ಯೋಜಿಸಿ",
+    "planNewCrop": "ಹೊಸ ಬೆಳೆಯನ್ನು ಯೋಜಿಸಿ",
+    "farmingTips": "ಕೃಷಿ ಸಲಹೆಗಳು & ಸುದ್ದಿ",
+    "tipsForYourCrops": "ನಿಮ್ಮ ಬೆಳೆಗಳಿಗಾಗಿ ಸಲಹೆಗಳು",
+    "weatherForecast": "ಹವಾಮಾನ ಮುನ್ಸೂಚನೆ",
+    "quickActions": "ತ್ವರಿತ ಕ್ರಿಯೆಗಳು",
+    "planCrop": "ಬೆಳೆ ಯೋಜನೆ",
+    "manageHarvest": "ಕೊಯ್ಲು ನಿರ್ವಹಣೆ",
+    "browseBuyerRequests": "ಖರೀದಿದಾರರ ವಿನಂತಿಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
+    "findBuyers": "ನಿಮ್ಮ ಉತ್ಪನ್ನಕ್ಕಾಗಿ ಖರೀದಿದಾರರನ್ನು ಹುಡುಕಿ",
+    "checkStorage": "ಸಂಗ್ರಹಣೆ ಲಭ್ಯತೆಯನ್ನು ಪರಿಶೀಲಿಸಿ",
+    "bookTransport": "ವಿತರಣೆಗಾಗಿ ಸಾರಿಗೆಯನ್ನು ಬುಕ್ ಮಾಡಿ",
+    "temperature": "ತಾಪಮಾನ",
+    "humidity": "ಆರ್ದ್ರತೆ",
+    "wind": "ಗಾಳಿ",
+    "conditions": "ಪರಿಸ್ಥಿತಿಗಳು",
+    "partlyCloudy": "ಭಾಗಶಃ ಮೋಡ"
+  },
+  "tips": {
+    "waterManagement": "ನೀರು ನಿರ್ವಹಣೆ",
+    "waterManagementDesc": "ಡ್ರಿಪ್ ನೀರಾವರಿಯು 60% ವರೆಗೆ ನೀರನ್ನು ಉಳಿಸಬಹುದು. ಮಣ್ಣಿನ ತೇವಾಂಶವನ್ನು ನಿಯಮಿತವಾಗಿ ಮೇಲ್ವಿಚಾರಣೆ ಮಾಡಿ ಮತ್ತು ಬೆಳೆ ಅಗತ್ಯಗಳ ಆಧಾರದ ಮೇಲೆ ನೀರಾವರಿ ಮಾಡಿ.",
+    "waterManagementDescLong": "ಸಾಂಪ್ರದಾಯಿಕ ವಿಧಾನಗಳಿಗೆ ಹೋಲಿಸಿದರೆ ಡ್ರಿಪ್ ನೀರಾವರಿಯು 60% ವರೆಗೆ ನೀರನ್ನು ಉಳಿಸಬಹುದು. ಉತ್ತಮ ನೀರಿನ ದಕ್ಷತೆ ಮತ್ತು ಹೆಚ್ಚಿನ ಇಳುವರಿಗಾಗಿ ಇದನ್ನು ಸ್ಥಾಪಿಸುವುದನ್ನು ಪರಿಗಣಿಸಿ.",
+    "optimalPlanting": "ಸೂಕ್ತ ನೆಡುವ ಋತು",
+    "optimalPlantingDesc": "ಖರೀಫ್ ಋತು (ಜೂನ್-ಅಕ್ಟೋಬರ್) ಅಕ್ಕಿ, ಹತ್ತಿ ಮತ್ತು ಜೋಳಕ್ಕೆ ಸೂಕ್ತವಾಗಿದೆ. ರಬಿ ಋತು (ಅಕ್ಟೋಬರ್-ಮಾರ್ಚ್) ಗೋಧಿ, ಸಾಸಿವೆ ಮತ್ತು ಕಡಲೆಗೆ ಉತ್ತಮವಾಗಿದೆ.",
+    "marketTrends": "ಮಾರುಕಟ್ಟೆ ಪ್ರವೃತ್ತಿಗಳು",
+    "marketTrendsDesc": "ಸಾವಯವ ಉತ್ಪನ್ನಗಳ ಬೇಡಿಕೆ ವಾರ್ಷಿಕವಾಗಿ 25% ಬೆಳೆಯುತ್ತಿದೆ. ಪ್ರೀಮಿಯಂ ಬೆಲೆಗಳು ಮತ್ತು ಉತ್ತಮ ಮಾರುಕಟ್ಟೆ ಪ್ರವೇಶಕ್ಕಾಗಿ ಸಾವಯವ ಕೃಷಿಗೆ ಪರಿವರ್ತನೆಯನ್ನು ಪರಿಗಣಿಸಿ.",
+    "postHarvestStorage": "ಕೊಯ್ಲು ನಂತರದ ಸಂಗ್ರಹಣೆ",
+    "postHarvestStorageDesc": "ಸರಿಯಾದ ಸಂಗ್ರಹಣೆಯು ಕೊಯ್ಲು ನಂತರದ ನಷ್ಟಗಳನ್ನು 30-40% ಕಡಿಮೆ ಮಾಡಬಹುದು. ಹವಾಮಾನ-ನಿಯಂತ್ರಿತ ಸಂಗ್ರಹಣೆಯನ್ನು ಸುರಕ್ಷಿತಗೊಳಿಸಲು ನಮ್ಮ ಗೋದಾಮು ಬುಕಿಂಗ್ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಬಳಸಿ.",
+    "governmentScheme": "ಸರ್ಕಾರಿ ಯೋಜನೆ ನವೀಕರಣ",
+    "governmentSchemeDesc": "PM-KISAN ಯೋಜನೆಯು ಈಗ ₹6,000 ವಾರ್ಷಿಕ ಬೆಂಬಲವನ್ನು ಒದಗಿಸುತ್ತದೆ. ನಿಮ್ಮ ಬ್ಯಾಂಕ್ ಖಾತೆಯಲ್ಲಿ ನೇರವಾಗಿ ಪ್ರಯೋಜನಗಳನ್ನು ಪಡೆಯಲು ನಿಮ್ಮ KYC ನವೀಕರಿಸಲಾಗಿದೆಯೆ ಎಂದು ಖಚಿತಪಡಿಸಿಕೊಳ್ಳಿ."
+  },
+  "help": {
+    "howToUse": "ಹೇಗೆ ಬಳಸುವುದು",
+    "pageGuide": "ಪುಟ ಮಾರ್ಗದರ್ಶಿ",
+    "whatYouCanDo": "ಇಲ್ಲಿ ನೀವು ಏನು ಮಾಡಬಹುದು",
+    "howToGet": "ಪ್ರಾರಂಭಿಸುವುದು ಹೇಗೆ",
+    "proTip": "ಪ್ರೊ ಟಿಪ್",
+    "gotIt": "ಅರ್ಥವಾಯಿತು, ಅನ್ವೇಷಿಸೋಣ!",
+    "dashboard": {
+      "title": "Farmer Dashboard — Your Farm HQ",
+      "subtitle": "Everything you need to manage your farm in one place.",
+      "features": [
+        "View a live summary of your total land, active crops, and expected yield",
+        "Check real-time weather for your farm location",
+        "Read today's agri news, disaster alerts, pest warnings & mandi prices",
+        "Access AI-powered features: Crop Planning, Quality Assessment & Selling Strategy",
+        "Watch a demo video to understand the full platform"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Check your stats",
+          "desc": "See total land, active crops & yield at the top."
+        },
+        {
+          "icon": "2",
+          "title": "Read today's alerts",
+          "desc": "Scroll to 'Live Agri News' for weather, pest & disaster alerts specific to your region."
+        },
+        {
+          "icon": "3",
+          "title": "Use an AI feature",
+          "desc": "Click any AI card (Crop Planning, Quality Assessment, Selling Strategy) to get personalised AI guidance."
+        },
+        {
+          "icon": "4",
+          "title": "List your produce",
+          "desc": "Once crops are ready, use 'List Produce' to connect with buyers."
+        }
+      ],
+      "tip": "Switch the language using the globe icon in the top bar — the entire app including alerts and tips will translate instantly!"
+    },
+    "cropPlanning": {
+      "title": "AI Crop Planning",
+      "subtitle": "Get AI-powered crop recommendations matched to your soil, weather, and market.",
+      "features": [
+        "Select multiple crops and compare them side-by-side",
+        "Search from 80+ crop varieties",
+        "View a 2D sector map showing how crops divide your field",
+        "Get ranked crop suggestions based on your soil type, season and region",
+        "Analyse risk scenarios: drought, flood, market price drop"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Enter your field details",
+          "desc": "Fill in soil type, water source, and location."
+        },
+        {
+          "icon": "2",
+          "title": "Get AI suggestions",
+          "desc": "Click 'Get Recommendations' — AI ranks the best crops for your conditions."
+        },
+        {
+          "icon": "3",
+          "title": "Multi-select crops",
+          "desc": "Tick multiple crop cards to compare them on the sector map."
+        },
+        {
+          "icon": "4",
+          "title": "Explore scenarios",
+          "desc": "Switch between Risk, Revenue and Yield tabs to understand trade-offs."
+        },
+        {
+          "icon": "5",
+          "title": "Save your plan",
+          "desc": "Click 'Plant This Crop' to lock in your choice and track it in Harvest Management."
+        }
+      ],
+      "tip": "Multi-selecting crops shows how they would share your land visually on the sector map — great for planning mixed cropping."
+    },
+    "qualityAssessment": {
+      "title": "AI Quality Assessment",
+      "subtitle": "Upload a photo of your crop and get an instant AI grade with recommendations.",
+      "features": [
+        "Upload or take a photo of your crop at any growth stage",
+        "Get an AI grade (A/B/C/D) with an overall quality score",
+        "See freshness, damage level, and colour analysis",
+        "Receive specific issues detected and personalised recommendations",
+        "Directly jump to AI Selling Strategy from the result"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Select your crop type",
+          "desc": "Choose the crop from the dropdown list."
+        },
+        {
+          "icon": "2",
+          "title": "Pick the growth stage",
+          "desc": "Select whether it's seedling, growing, flowering, or ready to harvest."
+        },
+        {
+          "icon": "3",
+          "title": "Upload a clear photo",
+          "desc": "Use a well-lit photo — close-up works best. Max 5 MB."
+        },
+        {
+          "icon": "4",
+          "title": "Click Analyse",
+          "desc": "Gemini Vision analyses the photo in seconds and shows a grade."
+        },
+        {
+          "icon": "5",
+          "title": "Act on recommendations",
+          "desc": "Read detected issues and follow AI advice to improve quality or sell wisely."
+        }
+      ],
+      "tip": "Take the photo in natural daylight for best accuracy. Avoid blurry or dark images."
+    },
+    "sellingStrategy": {
+      "title": "AI Selling Strategy",
+      "subtitle": "Know exactly when, where and how much to sell for maximum profit.",
+      "features": [
+        "Get a sell-now vs store-later split recommendation",
+        "See live mandi prices and MSP benchmarks auto-fetched",
+        "View a price trend forecast for the next few months",
+        "Compare revenue for different selling strategies",
+        "Inspect the AI's reasoning and confidence score"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Select crop & variety",
+          "desc": "Choose your crop variety from 80+ options."
+        },
+        {
+          "icon": "2",
+          "title": "Enter yield & harvest month",
+          "desc": "Specify how much you expect to harvest and when."
+        },
+        {
+          "icon": "3",
+          "title": "Auto-fetch mandi price",
+          "desc": "Click 'Auto-fetch' to pull live market prices for your crop."
+        },
+        {
+          "icon": "4",
+          "title": "Set location & storage",
+          "desc": "Confirm your farm district and whether you have warehouse access."
+        },
+        {
+          "icon": "5",
+          "title": "Generate strategy",
+          "desc": "Click 'Generate AI Selling Strategy' to see the full recommendation."
+        }
+      ],
+      "tip": "If you have storage access, the AI may recommend holding 30-50% of stock to sell at peak price — this alone can increase revenue by 20-40%."
+    },
+    "harvestManagement": {
+      "title": "Harvest Management",
+      "subtitle": "Track every crop from planting to sale in real time.",
+      "features": [
+        "View all your active and past crops in one place",
+        "Update crop growth stages and log activities",
+        "Book warehouses and transport for post-harvest logistics",
+        "Mark crops as harvested and list them for sale",
+        "Check care tips and recommended actions for each crop"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Select a crop",
+          "desc": "Click on any crop card to open its detail view."
+        },
+        {
+          "icon": "2",
+          "title": "Log today's activity",
+          "desc": "Record irrigation, fertiliser, or pest treatment under 'Activities'."
+        },
+        {
+          "icon": "3",
+          "title": "Update the growth stage",
+          "desc": "Move the crop forward as it grows (Sowing → Growing → Harvest Ready)."
+        },
+        {
+          "icon": "4",
+          "title": "Book storage or transport",
+          "desc": "Use the Warehouse and Transport tabs to arrange logistics."
+        },
+        {
+          "icon": "5",
+          "title": "List when ready",
+          "desc": "Once harvested, click 'List Produce' to publish it to buyers."
+        }
+      ],
+      "tip": "Logging activities regularly gives the AI better data for future crop planning and quality predictions."
+    },
+    "myListings": {
+      "title": "My Produce Listings",
+      "subtitle": "View and manage all produce you have listed for buyers.",
+      "features": [
+        "See all your active and completed produce listings",
+        "Track buyer offers and negotiation status in real time",
+        "Accept or counter-offer from buyers directly",
+        "View the full deal roadmap from listing to award",
+        "Download invoice once deal is finalized"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Click on a listing",
+          "desc": "Open any listing card to see its status and buyer offers."
+        },
+        {
+          "icon": "2",
+          "title": "Review offers",
+          "desc": "Scroll to the Offers section to see what buyers have quoted."
+        },
+        {
+          "icon": "3",
+          "title": "Accept or counter",
+          "desc": "Use 'Accept' to agree or 'Counter' to propose a different price."
+        },
+        {
+          "icon": "4",
+          "title": "Track the roadmap",
+          "desc": "The status workflow shows you exactly where you are in the deal process."
+        },
+        {
+          "icon": "5",
+          "title": "Download invoice",
+          "desc": "Once awarded, scroll to the Invoice section to download your sale receipt."
+        }
+      ],
+      "tip": "Enable browser notifications so you get instant alerts when a buyer submits or updates an offer."
+    },
+    "listProduce": {
+      "title": "List Your Produce",
+      "subtitle": "Publish your harvested crop to reach verified buyers.",
+      "features": [
+        "List any harvested crop with quantity, quality grade and asking price",
+        "Set a delivery date and pickup location",
+        "Add photos for better buyer confidence",
+        "Choose between open listing (anyone can offer) or direct sale"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Select your crop",
+          "desc": "Choose the crop type and variety from the dropdown."
+        },
+        {
+          "icon": "2",
+          "title": "Enter quantity & price",
+          "desc": "Fill in how much you're selling and your asking price per unit."
+        },
+        {
+          "icon": "3",
+          "title": "Add quality details",
+          "desc": "Select the quality grade (A/B/C) and add any notes."
+        },
+        {
+          "icon": "4",
+          "title": "Set location & date",
+          "desc": "Specify where the buyer can pick up the produce and when."
+        },
+        {
+          "icon": "5",
+          "title": "Publish listing",
+          "desc": "Click 'List Produce' — buyers will see it immediately and can submit offers."
+        }
+      ],
+      "tip": "Adding a photo of your produce can significantly increase the number of buyer offers you receive."
+    },
+    "procurement": {
+      "title": "Browse Buyer Requests",
+      "subtitle": "Find buyers actively looking for the crops you grow.",
+      "features": [
+        "Browse live procurement requests from verified buyers",
+        "Filter by crop type, location, and quantity",
+        "Submit your offer directly from the request detail page",
+        "Negotiate price and quantity with buyers through the platform",
+        "Track the full deal from offer to contract award"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Browse requests",
+          "desc": "Scroll through buyer procurement requests. Filter by your crop type."
+        },
+        {
+          "icon": "2",
+          "title": "Open a request",
+          "desc": "Click a request to see quantity, price expectation, location and delivery date."
+        },
+        {
+          "icon": "3",
+          "title": "Submit your offer",
+          "desc": "Enter your price per unit and available quantity, then click 'Submit Offer'."
+        },
+        {
+          "icon": "4",
+          "title": "Negotiate",
+          "desc": "If the buyer counters, you'll get a notification. Review and respond."
+        },
+        {
+          "icon": "5",
+          "title": "Deal awarded",
+          "desc": "Once both sides agree, the deal is finalized and an invoice is generated."
+        }
+      ],
+      "tip": "Buyers can see all farmer offers side-by-side — a competitive price with a strong quality grade wins more deals."
+    },
+    "buyerDashboard": {
+      "title": "Buyer Dashboard",
+      "subtitle": "Manage your procurement, listings and negotiations in one place.",
+      "features": [
+        "See all your active procurement requests",
+        "Browse farmer listings and submit offers",
+        "Track negotiation status and roadmap for each deal",
+        "View analytics on spend, quantity, and deals closed"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Create a request",
+          "desc": "Click 'Create Procurement Request' to tell farmers what you need."
+        },
+        {
+          "icon": "2",
+          "title": "Browse farmer listings",
+          "desc": "Go to 'Farmer Listings' to see produce available right now."
+        },
+        {
+          "icon": "3",
+          "title": "Submit an offer",
+          "desc": "Open a listing and submit your price and quantity offer."
+        },
+        {
+          "icon": "4",
+          "title": "Negotiate & award",
+          "desc": "Accept or counter-offer until both sides agree. Click 'Propose Award' to finalise."
+        }
+      ],
+      "tip": "Setting up a procurement request means farmers will approach you with offers — it's more efficient than browsing manually."
+    },
+    "buyerProcurement": {
+      "title": "Procurement Requests",
+      "subtitle": "Manage all your active and past buy requests.",
+      "features": [
+        "View all procurement requests you have created",
+        "See which farmers have submitted offers",
+        "Track negotiation and deal status for each request",
+        "Award deals and generate contracts"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Open a request",
+          "desc": "Click any request to see all farmer offers received."
+        },
+        {
+          "icon": "2",
+          "title": "Compare offers",
+          "desc": "Review price, quantity, and farmer quality grade side by side."
+        },
+        {
+          "icon": "3",
+          "title": "Negotiate",
+          "desc": "Use 'Counter Offer' to propose adjustments, or 'Accept' to move forward."
+        },
+        {
+          "icon": "4",
+          "title": "Award the deal",
+          "desc": "Click 'Propose Award' to send the deal to the farmer for final confirmation."
+        }
+      ],
+      "tip": "Use the Status Workflow bar at the top of each request to always know exactly where you are in the deal process."
+    },
+    "invoices": {
+      "title": "Invoices & Receipts",
+      "subtitle": "View and download official sales invoices and procurement receipts.",
+      "features": [
+        "Browse invoices for all completed deals and purchases",
+        "Download GST-compliant PDF receipts with payment details",
+        "Track payment status and transaction history",
+        "Filter invoices by date range, commodity or partner"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Find an invoice",
+          "desc": "Locate the invoice by deal reference number or commodity name."
+        },
+        {
+          "icon": "2",
+          "title": "View details",
+          "desc": "Click 'View' to see the complete price, quantity, and tax breakdown."
+        },
+        {
+          "icon": "3",
+          "title": "Download receipt",
+          "desc": "Click 'Download PDF' to save a copy for your records or accounting."
+        }
+      ],
+      "tip": "Keep your invoice records handy for agricultural subsidy claims and tax filing."
+    },
+    "profile": {
+      "title": "User Profile & Settings",
+      "subtitle": "Manage your account, farm details, location, and preferences.",
+      "features": [
+        "Update your contact details, farm address, and PIN code",
+        "Change your preferred language for the whole platform",
+        "Manage security settings and password",
+        "Set warehouse and vehicle availability"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Update information",
+          "desc": "Edit your name, phone number, and location."
+        },
+        {
+          "icon": "2",
+          "title": "Save changes",
+          "desc": "Click 'Save Changes' to update your profile immediately."
+        },
+        {
+          "icon": "3",
+          "title": "Select language",
+          "desc": "Use the language switcher to browse in your mother tongue."
+        }
+      ],
+      "tip": "Keeping your farm PIN code accurate ensures you get localized weather and accurate nearest mandi prices."
+    },
+    "adminDashboard": {
+      "title": "Admin Portal & Monitoring",
+      "subtitle": "Monitor platform activity, user transactions, and system health.",
+      "features": [
+        "View total active farmers, buyers, listings and deals",
+        "Track live platform metrics and throughput",
+        "Monitor API services and database connections",
+        "Audit system activity logs in real-time"
+      ],
+      "steps": [
+        {
+          "icon": "1",
+          "title": "Review metrics",
+          "desc": "Inspect key stats on registrations, active listings, and closed deals."
+        },
+        {
+          "icon": "2",
+          "title": "Check system health",
+          "desc": "Navigate to Monitoring to see API latency and error rates."
+        }
+      ],
+      "tip": "System logs update dynamically to help detect bottlenecks and suspicious activities immediately."
+    }
+  }
+}

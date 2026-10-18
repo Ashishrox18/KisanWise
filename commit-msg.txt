@@ -1,0 +1,7 @@
+fix: LocalStorageService mkdir crash on Vercel read-only filesystem
+
+The LocalStorageService constructor called ensureDataDir() at module
+load time regardless of which storage backend was configured. On Vercel
+the filesystem is read-only so mkdirSync threw ENOENT immediately.
+
+Fix: skip ensureDataDir() and file operations when NODE_ENV=production.

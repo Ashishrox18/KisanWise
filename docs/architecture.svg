@@ -1,0 +1,241 @@
+<svg viewBox="0 0 1100 780" xmlns="http://www.w3.org/2000/svg" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13">
+  <defs>
+    <linearGradient id="hdrGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#16a34a"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="gcpGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#eff6ff"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </linearGradient>
+    <linearGradient id="extGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#dcfce7"/>
+    </linearGradient>
+    <linearGradient id="mlGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#faf5ff"/>
+      <stop offset="100%" stop-color="#ede9fe"/>
+    </linearGradient>
+    <linearGradient id="feGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="100%" stop-color="#fed7aa"/>
+    </linearGradient>
+    <linearGradient id="beGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <!-- Title banner -->
+  <rect x="0" y="0" width="1100" height="52" fill="url(#hdrGrad)" rx="0"/>
+  <text x="550" y="18" text-anchor="middle" fill="white" font-size="15" font-weight="700">KisanWise — AI-Powered Agricultural Platform</text>
+  <text x="550" y="38" text-anchor="middle" fill="#d1fae5" font-size="11">System Architecture · Google Cloud + Gemini AI + XGBoost ML</text>
+
+  <!-- ── FRONTEND box ─────────────────────────────────────────────── -->
+  <rect x="18" y="66" width="230" height="380" rx="12" fill="url(#feGrad)" stroke="#f97316" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="18" y="66" width="230" height="28" rx="12" fill="#f97316"/>
+  <rect x="18" y="82" width="230" height="12" fill="#f97316"/>
+  <text x="133" y="85" text-anchor="middle" fill="white" font-size="11" font-weight="700">FRONTEND — React 18 + Vite</text>
+  <text x="133" y="111" text-anchor="middle" fill="#7c2d12" font-size="10" font-weight="600">Farmer Pages</text>
+  <text x="133" y="127" text-anchor="middle" fill="#431407" font-size="10">Dashboard · Crop Planning</text>
+  <text x="133" y="142" text-anchor="middle" fill="#431407" font-size="10">Crop Map · Quality Assessment</text>
+  <text x="133" y="157" text-anchor="middle" fill="#431407" font-size="10">Selling Strategy · Analytics</text>
+  <text x="133" y="179" text-anchor="middle" fill="#7c2d12" font-size="10" font-weight="600">Buyer Pages</text>
+  <text x="133" y="195" text-anchor="middle" fill="#431407" font-size="10">Procurement · Negotiation</text>
+  <text x="133" y="210" text-anchor="middle" fill="#431407" font-size="10">Quality Inspection</text>
+  <text x="133" y="232" text-anchor="middle" fill="#7c2d12" font-size="10" font-weight="600">Browser-native APIs (no backend)</text>
+  <text x="133" y="248" text-anchor="middle" fill="#431407" font-size="10">Web Speech API (voice input / TTS)</text>
+  <text x="133" y="263" text-anchor="middle" fill="#431407" font-size="10">LocalStorage (assessment cache)</text>
+  <text x="133" y="278" text-anchor="middle" fill="#431407" font-size="10">Navigator.geolocation (farm location)</text>
+  <text x="133" y="300" text-anchor="middle" fill="#7c2d12" font-size="10" font-weight="600">State / Routing</text>
+  <text x="133" y="316" text-anchor="middle" fill="#431407" font-size="10">React Router v6 · Recharts</text>
+  <text x="133" y="331" text-anchor="middle" fill="#431407" font-size="10">Lucide Icons · Tailwind CSS</text>
+  <text x="133" y="353" text-anchor="middle" fill="#7c2d12" font-size="10" font-weight="600">AI Governance</text>
+  <text x="133" y="369" text-anchor="middle" fill="#431407" font-size="10">One-time notice (localStorage)</text>
+  <text x="133" y="384" text-anchor="middle" fill="#431407" font-size="10">Acknowledgement recorded per user</text>
+  <text x="133" y="403" text-anchor="middle" fill="#9a3412" font-size="9" font-style="italic">TypeScript · Vite · Deployed: Vercel</text>
+  <text x="133" y="418" text-anchor="middle" fill="#9a3412" font-size="9" font-style="italic">https://krishi-era-ai-updj.vercel.app</text>
+
+  <!-- ── BACKEND box ──────────────────────────────────────────────── -->
+  <rect x="272" y="66" width="230" height="380" rx="12" fill="url(#beGrad)" stroke="#64748b" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="272" y="66" width="230" height="28" rx="12" fill="#1e293b"/>
+  <rect x="272" y="82" width="230" height="12" fill="#1e293b"/>
+  <text x="387" y="85" text-anchor="middle" fill="white" font-size="11" font-weight="700">BACKEND — Node + Express</text>
+  <text x="387" y="111" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">REST Routes (all JWT-guarded)</text>
+  <text x="387" y="127" text-anchor="middle" fill="#475569" font-size="10">/api/auth   (20 req/15min limit)</text>
+  <text x="387" y="142" text-anchor="middle" fill="#475569" font-size="10">/api/ai      (30 req/min limit)</text>
+  <text x="387" y="157" text-anchor="middle" fill="#475569" font-size="10">/api/farmer · /api/buyer · /api/offers</text>
+  <text x="387" y="179" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">Security Middleware</text>
+  <text x="387" y="195" text-anchor="middle" fill="#475569" font-size="10">Helmet + CSP · CORS allowlist</text>
+  <text x="387" y="210" text-anchor="middle" fill="#475569" font-size="10">express-rate-limit · bcrypt (cost 10)</text>
+  <text x="387" y="225" text-anchor="middle" fill="#475569" font-size="10">JWT auth · Body size limit 10MB</text>
+  <text x="387" y="247" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">AI Orchestration Layer</text>
+  <text x="387" y="263" text-anchor="middle" fill="#475569" font-size="10">Trust Engine (signal fusion)</text>
+  <text x="387" y="278" text-anchor="middle" fill="#475569" font-size="10">Scenario Mapper (ranked options)</text>
+  <text x="387" y="293" text-anchor="middle" fill="#475569" font-size="10">ML signal (XGBoost, optional)</text>
+  <text x="387" y="315" text-anchor="middle" fill="#334155" font-size="10" font-weight="600">Key Services</text>
+  <text x="387" y="331" text-anchor="middle" fill="#475569" font-size="10">market-price.service (Agmarknet)</text>
+  <text x="387" y="346" text-anchor="middle" fill="#475569" font-size="10">weather.service (Open-Meteo)</text>
+  <text x="387" y="361" text-anchor="middle" fill="#475569" font-size="10">earthEngine.service (NDVI risk)</text>
+  <text x="387" y="376" text-anchor="middle" fill="#475569" font-size="10">gdacs.service · news.service</text>
+  <text x="387" y="403" text-anchor="middle" fill="#64748b" font-size="9" font-style="italic">TypeScript · Deployed: Vercel (serverless)</text>
+  <text x="387" y="418" text-anchor="middle" fill="#64748b" font-size="9" font-style="italic">Dockerfile available for Cloud Run</text>
+
+  <!-- HTTPS arrow FE → BE -->
+  <line x1="248" y1="255" x2="272" y2="255" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arr)"/>
+  <text x="260" y="250" text-anchor="middle" fill="#64748b" font-size="9">HTTPS</text>
+
+  <!-- ── GOOGLE CLOUD box ─────────────────────────────────────────── -->
+  <rect x="526" y="66" width="238" height="380" rx="12" fill="url(#gcpGrad)" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="526" y="66" width="238" height="28" rx="12" fill="#1d4ed8"/>
+  <rect x="526" y="82" width="238" height="12" fill="#1d4ed8"/>
+  <text x="645" y="85" text-anchor="middle" fill="white" font-size="11" font-weight="700">GOOGLE CLOUD (genuinely used)</text>
+
+  <!-- Gemini -->
+  <rect x="536" y="103" width="218" height="66" rx="8" fill="white" stroke="#93c5fd" stroke-width="1"/>
+  <text x="545" y="119" fill="#1e40af" font-size="10" font-weight="700">✅ Gemini AI  (AI Studio SDK)</text>
+  <text x="545" y="133" fill="#1e3a8a" font-size="9.5">Crop planning · Quality grading</text>
+  <text x="545" y="147" fill="#1e3a8a" font-size="9.5">Selling strategy · AI assistant</text>
+  <text x="545" y="160" fill="#1e3a8a" font-size="9.5">Trust Engine · Scenario Mapper</text>
+
+  <!-- Firestore -->
+  <rect x="536" y="177" width="218" height="54" rx="8" fill="white" stroke="#93c5fd" stroke-width="1"/>
+  <text x="545" y="193" fill="#1e40af" font-size="10" font-weight="700">✅ Firestore (primary data store)</text>
+  <text x="545" y="207" fill="#1e3a8a" font-size="9.5">Users · Crops · Listings · Offers</text>
+  <text x="545" y="221" fill="#1e3a8a" font-size="9.5">Invoices · AI audit fallback</text>
+
+  <!-- BigQuery -->
+  <rect x="536" y="239" width="218" height="54" rx="8" fill="white" stroke="#93c5fd" stroke-width="1"/>
+  <text x="545" y="255" fill="#1e40af" font-size="10" font-weight="700">✅ BigQuery (AI audit trail)</text>
+  <text x="545" y="269" fill="#1e3a8a" font-size="9.5">Every Trust Engine + Scenario</text>
+  <text x="545" y="283" fill="#1e3a8a" font-size="9.5">Mapper decision logged async</text>
+
+  <!-- Earth Engine -->
+  <rect x="536" y="301" width="218" height="54" rx="8" fill="white" stroke="#93c5fd" stroke-width="1"/>
+  <text x="545" y="317" fill="#1e40af" font-size="10" font-weight="700">✅ Earth Engine (NDVI / risk)</text>
+  <text x="545" y="331" fill="#1e3a8a" font-size="9.5">Vegetation health per field coord</text>
+  <text x="545" y="345" fill="#1e3a8a" font-size="9.5">Weather fallback when EE offline</text>
+
+  <!-- Not integrated -->
+  <rect x="536" y="363" width="218" height="55" rx="8" fill="#fef2f2" stroke="#fca5a5" stroke-width="1"/>
+  <text x="545" y="379" fill="#dc2626" font-size="10" font-weight="700">❌ Not integrated</text>
+  <text x="545" y="393" fill="#991b1b" font-size="9.5">Vertex AI · Cloud Run · Cloud Storage</text>
+  <text x="545" y="407" fill="#991b1b" font-size="9.5">Pub/Sub  (honestly documented)</text>
+
+  <!-- arrow BE → GCP -->
+  <line x1="502" y1="255" x2="526" y2="255" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrcol)"/>
+
+  <!-- ── EXTERNAL APIs box ──────────────────────────────────────────── -->
+  <rect x="778" y="66" width="220" height="220" rx="12" fill="url(#extGrad)" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="778" y="66" width="220" height="28" rx="12" fill="#15803d"/>
+  <rect x="778" y="82" width="220" height="12" fill="#15803d"/>
+  <text x="888" y="85" text-anchor="middle" fill="white" font-size="11" font-weight="700">EXTERNAL APIs</text>
+  <text x="888" y="111" text-anchor="middle" fill="#14532d" font-size="10">📡 Open-Meteo  (weather + ET0 + solar)</text>
+  <text x="888" y="127" text-anchor="middle" fill="#14532d" font-size="10">🌾 Data.gov.in  (Agmarknet mandi prices)</text>
+  <text x="888" y="142" text-anchor="middle" fill="#14532d" font-size="10">📈 World Bank   (commodity Pink Sheet)</text>
+  <text x="888" y="157" text-anchor="middle" fill="#14532d" font-size="10">🌍 GDACS         (disaster alert feed)</text>
+  <text x="888" y="172" text-anchor="middle" fill="#14532d" font-size="10">📊 FAOSTAT       (production data)</text>
+  <text x="888" y="187" text-anchor="middle" fill="#14532d" font-size="10">🗺️  OpenStreetMap (Nominatim geocoding)</text>
+  <text x="888" y="202" text-anchor="middle" fill="#14532d" font-size="10">📰 RSS feeds     (agri news headlines)</text>
+  <text x="888" y="217" text-anchor="middle" fill="#14532d" font-size="10">🔑 Firebase Auth (Google Sign-In)</text>
+  <text x="888" y="237" text-anchor="middle" fill="#166534" font-size="9" font-style="italic">All calls have timeouts + graceful</text>
+  <text x="888" y="251" text-anchor="middle" fill="#166534" font-size="9" font-style="italic">fallbacks to static data</text>
+  <text x="888" y="265" text-anchor="middle" fill="#166534" font-size="9" font-style="italic">API keys server-side only</text>
+
+  <!-- arrow BE → EXT -->
+  <line x1="502" y1="175" x2="778" y2="175" stroke="#16a34a" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrgreen)"/>
+
+  <!-- ── ML box ──────────────────────────────────────────────────────── -->
+  <rect x="778" y="302" width="220" height="164" rx="12" fill="url(#mlGrad)" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="778" y="302" width="220" height="28" rx="12" fill="#6d28d9"/>
+  <rect x="778" y="318" width="220" height="12" fill="#6d28d9"/>
+  <text x="888" y="321" text-anchor="middle" fill="white" font-size="11" font-weight="700">ML LAYER (backend/ml/)</text>
+  <text x="888" y="348" text-anchor="middle" fill="#4c1d95" font-size="10">Python 3 · XGBoost 3.4</text>
+  <text x="888" y="363" text-anchor="middle" fill="#4c1d95" font-size="10">train.py → price-trend-model.json</text>
+  <text x="888" y="378" text-anchor="middle" fill="#4c1d95" font-size="10">predict.py (stdin/stdout JSON)</text>
+  <text x="888" y="395" text-anchor="middle" fill="#5b21b6" font-size="10" font-weight="600">Node → execFile (no shell injection)</text>
+  <text x="888" y="411" text-anchor="middle" fill="#4c1d95" font-size="9.5">7-day price direction · confidence</text>
+  <text x="888" y="426" text-anchor="middle" fill="#4c1d95" font-size="9.5">Feeds Scenario Mapper as 1 signal</text>
+  <text x="888" y="441" text-anchor="middle" fill="#7c3aed" font-size="9" font-style="italic">ENABLE_ML=false (safe default)</text>
+  <text x="888" y="456" text-anchor="middle" fill="#7c3aed" font-size="9" font-style="italic">3s timeout · null on failure</text>
+
+  <!-- arrow BE → ML -->
+  <line x1="502" y1="380" x2="778" y2="380" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrpurple)"/>
+
+  <!-- ── DATA FLOW section ─────────────────────────────────────────── -->
+  <rect x="18" y="462" width="984" height="148" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="18" y="462" width="984" height="24" rx="12" fill="#0f172a"/>
+  <rect x="18" y="474" width="984" height="12" fill="#0f172a"/>
+  <text x="510" y="477" text-anchor="middle" fill="white" font-size="11" font-weight="700">Primary AI Data Flow — Crop Selling Strategy Decision</text>
+  <!-- Flow steps -->
+  <rect x="30" y="492" width="90" height="38" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="1"/>
+  <text x="75" y="509" text-anchor="middle" fill="#7c2d12" font-size="9" font-weight="700">Farmer</text>
+  <text x="75" y="523" text-anchor="middle" fill="#7c2d12" font-size="9">Submits form</text>
+  <line x1="120" y1="511" x2="140" y2="511" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrgray)"/>
+
+  <rect x="140" y="492" width="105" height="38" rx="6" fill="#f8fafc" stroke="#64748b" stroke-width="1"/>
+  <text x="192" y="509" text-anchor="middle" fill="#1e293b" font-size="9" font-weight="700">Parallel fetch</text>
+  <text x="192" y="523" text-anchor="middle" fill="#475569" font-size="8.5">Agmarknet · WorldBank</text>
+  <line x1="245" y1="511" x2="265" y2="511" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrgray)"/>
+
+  <rect x="265" y="492" width="95" height="38" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="312" y="509" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="700">Trust Engine</text>
+  <text x="312" y="523" text-anchor="middle" fill="#1e40af" font-size="8.5">Gemini — fuses</text>
+  <line x1="360" y1="511" x2="380" y2="511" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrgray)"/>
+
+  <rect x="380" y="492" width="90" height="38" rx="6" fill="#faf5ff" stroke="#7c3aed" stroke-width="1"/>
+  <text x="425" y="509" text-anchor="middle" fill="#4c1d95" font-size="9" font-weight="700">ML Signal</text>
+  <text x="425" y="523" text-anchor="middle" fill="#4c1d95" font-size="8.5">XGBoost optional</text>
+  <line x1="470" y1="511" x2="490" y2="511" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrgray)"/>
+
+  <rect x="490" y="492" width="100" height="38" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="540" y="509" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="700">Scenario Mapper</text>
+  <text x="540" y="523" text-anchor="middle" fill="#1e40af" font-size="8.5">Gemini — ranked</text>
+  <line x1="590" y1="511" x2="610" y2="511" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrgray)"/>
+
+  <rect x="610" y="492" width="100" height="38" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="660" y="509" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="700">Selling Strategy</text>
+  <text x="660" y="523" text-anchor="middle" fill="#1e40af" font-size="8.5">Gemini — split%</text>
+  <line x1="710" y1="511" x2="730" y2="511" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrgray)"/>
+
+  <rect x="730" y="492" width="95" height="38" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1"/>
+  <text x="777" y="509" text-anchor="middle" fill="#14532d" font-size="9" font-weight="700">BigQuery Audit</text>
+  <text x="777" y="523" text-anchor="middle" fill="#14532d" font-size="8.5">async · non-blocking</text>
+  <line x1="825" y1="511" x2="845" y2="511" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrgray)"/>
+
+  <rect x="845" y="492" width="95" height="38" rx="6" fill="#fff7ed" stroke="#f97316" stroke-width="1"/>
+  <text x="892" y="509" text-anchor="middle" fill="#7c2d12" font-size="9" font-weight="700">Response</text>
+  <text x="892" y="523" text-anchor="middle" fill="#7c2d12" font-size="8.5">JSON to farmer</text>
+
+  <!-- footnote row -->
+  <text x="510" y="568" text-anchor="middle" fill="#475569" font-size="10">Sell strategy · Trust Engine verdict · Scenario options · ML direction signal · Decision ID (for "Why this answer?" audit trail)</text>
+  <text x="510" y="584" text-anchor="middle" fill="#94a3b8" font-size="9" font-style="italic">All AI outputs have JSON parse guard + static fallbacks. AI failures never return 500 to the farmer.</text>
+  <text x="510" y="599" text-anchor="middle" fill="#94a3b8" font-size="9" font-style="italic">Weather · Agmarknet · WorldBank · GDACS all have independent timeouts and fallback to hardcoded benchmark data.</text>
+
+  <!-- ── Problem statement tagline ─────────────────────────────────── -->
+  <rect x="18" y="622" width="984" height="36" rx="8" fill="#166534" />
+  <text x="510" y="636" text-anchor="middle" fill="white" font-size="10" font-weight="700">Problem: ~500M Indian smallholder farmers lack access to real-time market intelligence, AI-assisted crop planning, and transparent price discovery</text>
+  <text x="510" y="650" text-anchor="middle" fill="#86efac" font-size="10">Solution: KisanWise provides AI-powered sell/hold/store recommendations, crop-specific quality grading, mandi price alerts, and risk-aware planning — offline-friendly, multilingual, auditable</text>
+
+  <!-- arrow markers -->
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+    <marker id="arrcol" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrgreen" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#16a34a"/>
+    </marker>
+    <marker id="arrpurple" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrgray" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M0,0 L5,2.5 L0,5 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
