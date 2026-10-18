@@ -4,6 +4,7 @@ import jwt, { SignOptions } from 'jsonwebtoken';
 import { dynamoDBService } from '../services/firestore.service';
 import { v4 as uuidv4 } from 'uuid';
 import { getAuth } from 'firebase-admin/auth';
+import axios from 'axios';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback-secret-key-change-in-production';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
@@ -314,11 +315,23 @@ export class AuthController {
         return res.status(400).json({ error: 'idToken is required' });
       }
 
-      let decodedToken;
+      let decodedToken: any;
       try {
         decodedToken = await getAuth().verifyIdToken(idToken);
       } catch (err: any) {
-        return res.status(401).json({ error: 'Invalid Google ID token', details: err.message });
+        console.warn('⚠️ getAuth().verifyIdToken failed, falling back to Google tokeninfo:', err.message);
+        try {
+          const tokenRes = await axios.get(`https://oauth2.googleapis.com/tokeninfo?id_token=${idToken}`);
+          decodedToken = {
+            email: tokenRes.data.email,
+            name: tokenRes.data.name,
+            picture: tokenRes.data.picture,
+            uid: tokenRes.data.sub || tokenRes.data.user_id,
+          };
+        } catch (fallbackErr: any) {
+          console.error('❌ Token validation failed completely:', fallbackErr.message);
+          return res.status(401).json({ error: 'Invalid Google ID token', details: err.message });
+        }
       }
 
       const { email, name, picture, uid } = decodedToken;

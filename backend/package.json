@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --exec ts-node src/server.ts",
-    "build": "tsc",
+    "build": "tsc && (cp -r public dist/ 2>/dev/null || true)",
     "start": "node dist/server.js",
     "test": "jest --forceExit",
     "test:watch": "jest --watch",

@@ -29,6 +29,13 @@ function getFirestore(): Firestore | null {
         } as ServiceAccount);
       } else {
         console.warn('⚠️ No Firebase credentials found. Falling back to local storage.');
+        try {
+          initializeApp({
+            projectId: process.env.FIREBASE_PROJECT_ID || 'kisanwise-f18e4',
+          });
+        } catch {
+          // Ignore if already initialized
+        }
         firestoreDisabled = true;
         return null;
       }

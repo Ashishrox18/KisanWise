@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "kisanwise-app"
-  }
+    "default": "kisanwise-f18e4",
+    "kisanfront": "kisanwise-f18e4"
+  },
+  "targets": {},
+  "etags": {}
 }

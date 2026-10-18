@@ -4,7 +4,17 @@ import axios from 'axios';
 import { OAuth2Client } from 'google-auth-library';
 import { weatherService } from './weather.service';
 
-const ee = require('@google/earthengine');
+let ee: any = null;
+function getEarthEngine() {
+  if (!ee) {
+    try {
+      ee = require('@google/earthengine');
+    } catch (err: any) {
+      console.warn('⚠️ @google/earthengine module failed to load:', err?.message);
+    }
+  }
+  return ee;
+}
 
 /**
  * Earth Engine Service
@@ -147,6 +157,9 @@ class EarthEngineService {
   async ensureEEInitialized(): Promise<boolean> {
     if (this.eeInitialized) return true;
 
+    const eeInstance = getEarthEngine();
+    if (!eeInstance) return false;
+
     const token = await this.getAccessToken();
     if (!token || !this.oauth2Client) return false;
 
@@ -155,10 +168,10 @@ class EarthEngineService {
         const clientId = (this.oauth2Client as any)._clientId;
 
         // Set auth token in @google/earthengine
-        ee.data.setAuthToken(clientId, 'Bearer', token, 3600, [], () => {}, false);
+        eeInstance.data.setAuthToken(clientId, 'Bearer', token, 3600, [], () => {}, false);
 
         // Register token refresher for subsequent API calls
-        ee.data.setAuthTokenRefresher(async (callback: any) => {
+        eeInstance.data.setAuthTokenRefresher(async (callback: any) => {
           try {
             const fresh = await this.getAccessToken();
             callback({ token_type: 'Bearer', access_token: fresh, expires_in: 3600 });
@@ -169,7 +182,7 @@ class EarthEngineService {
 
         const project = process.env.GOOGLE_CLOUD_PROJECT || process.env.FIREBASE_PROJECT_ID || 'kisanwise-f18e4';
 
-        ee.initialize(
+        eeInstance.initialize(
           null,
           null,
           () => {
