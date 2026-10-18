@@ -82,7 +82,11 @@ export default function Login() {
         sessionStorage.setItem('user', JSON.stringify(res.user));
         navigate(ROLE_ROUTES[res.user.role] || '/');
       } catch (e: any) {
-        setError(e.response?.data?.error || 'Invalid credentials');
+        if (!e.response) {
+          setError('Cannot connect to backend server. Please check your backend URL and network connection.');
+        } else {
+          setError(e.response?.data?.error || 'Invalid credentials');
+        }
       } finally {
         setLoading(false);
       }
