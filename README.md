@@ -4,7 +4,7 @@
 >
 > **Solution:** KisanWise is an AI-powered platform that gives every farmer a data-backed copilot: sell/hold/store recommendations from a multi-signal Trust Engine, crop-specific quality grading via Gemini Vision, live mandi price alerts, geospatial risk scoring via Google Earth Engine, and auditable AI decisions via BigQuery.
 
-🔗 **Live demo:** https://krishi-era-ai-updj.vercel.app/login
+🔗 **Live demo:** https://kisanwise-f18e4.web.app/login
 
 ▶️ **Demo video:** https://drive.google.com/drive/folders/1OVLyLWQWmn-Q8rLDOUTN5P77ON7mEaAD?usp=sharing
 
